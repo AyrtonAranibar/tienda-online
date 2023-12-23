@@ -1,10 +1,11 @@
+import Layout from "../../Components/Layout"
 
 function MyAccount() {
 
     return (
-        <>
-MyAccount
-        </>
+        <Layout>
+            MyAccount
+        </Layout>
     )
 }
 

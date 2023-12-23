@@ -1,10 +1,11 @@
+import Layout from '../../Components/Layout'
 
 function SignIn() {
 
     return (
-        <>
-SignIn
-        </>
+        <Layout>
+            SignIn
+        </Layout>
     )
 }
 

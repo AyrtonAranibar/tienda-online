@@ -1,10 +1,12 @@
-
+import Layout from "../../Components/Layout"
+import Card from "../../Components/Card"
 function Home() {
 
     return (
-        <div className="home">
+        <Layout>
             home
-        </div>
+            <Card/>
+        </Layout>
     )
 }
 

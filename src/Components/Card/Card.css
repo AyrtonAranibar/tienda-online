@@ -39,9 +39,44 @@ figure{
     height: 30px;
 }
 .product-price{
+    opacity: 1;
     transform: skewY(-16deg);
     font-family: 'Cabin', sans-serif;
+    transition: .3s;
 }
 .product-price::before{
     content: "$";
+}
+.card:hover .product-price{
+    /* transform: skewY(-16deg); */
+
+    color: rgba(0, 0, 0, 0.169);
+    opacity: 0;
+    transition: .3s;
+    transform: translate(30px ,30px);
+}
+.card:hover .star{
+    transition: .3s;
+    opacity: 1;
+
+}
+.card:hover .star-container{
+    margin-top: 0px;
+    transition: .3s;
+
+}
+.star{
+    opacity: 0;
+    transform: skewY(-16deg);
+    stroke-width: 5px;
+    stroke:black;
+}
+.rating-count{
+    font-family: 'Cabin', sans-serif;
+    opacity: 0;
+    transform: skewY(-16deg);
+}
+.card:hover .rating-count{
+    transition: .3s;
+    opacity: 1;
 }

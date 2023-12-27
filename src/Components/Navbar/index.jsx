@@ -1,13 +1,14 @@
 import { NavLink } from "react-router-dom";
+import "./navbar.css"
 
 function Navbar(){
     const activeStyle = 'underline underline-offset-4 ';
 
     return(
-        <nav className="flex justify-between fixed z-10 w-full py-5 px-8 text-sm font-normal top-0">
-            <ul className="flex gap-3"> 
+        <nav className="nav-bar flex justify-between fixed z-10 w-full py-5 px-8 text-sm font-normal top-0">
+            <ul className=" flex gap-3"> 
                 <li className="font-semibold text-lg">
-                    <NavLink to='/'>
+                    <NavLink  to='/'>
                         Shopi
                     </NavLink>
                 </li>

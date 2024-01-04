@@ -42,6 +42,8 @@ figure{
     opacity: 1;
     transform: skewY(-16deg);
     font-family: 'Cabin', sans-serif;
+    font-weight: 500;
+    font-style: italic;
     transition: .3s;
 }
 .product-price::before{
@@ -75,6 +77,9 @@ figure{
     font-family: 'Cabin', sans-serif;
     opacity: 0;
     transform: skewY(-16deg);
+}
+.rating-count span{
+    font-weight: 400;
 }
 .card:hover .rating-count{
     transition: .3s;

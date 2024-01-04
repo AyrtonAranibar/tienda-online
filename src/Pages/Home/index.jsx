@@ -1,7 +1,7 @@
 import Layout from "../../Components/Layout"
 import Card from "../../Components/Card"
 import { useEffect, useState } from "react"
-
+    
 
 function Home() {
     const [items, setItems] = useState(null);

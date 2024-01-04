@@ -4,15 +4,18 @@ import producto from "../../assets/products/mouse.png";
 import { FaPlus, FaStar, FaStarHalf } from "react-icons/fa";
 import { IoPeople } from "react-icons/io5";
 // import { GrTechnology } from "react-icons/gr";
+import { useContext } from "react";
+import { ShoppingCartContext } from "../../Context/index.jsx";
 
 function Card(product){
-    console.log(product)
+    const context = useContext(ShoppingCartContext);
 
     const stars = product.product.rating.rate
     const starsFloor = Math.floor(stars);
     const halfStart = stars != starsFloor ? true : false;
 
     let starsList = []
+
 
     for (let i = 0; i < starsFloor; i++) {
         starsList.push(<FaStar className="star duration-300 text-yellow-300 inline-block" key={i}/>);
@@ -32,7 +35,11 @@ function Card(product){
                             ? `${product.product.title.slice(0, 30)}...`
                             : product.product.title}
                         </p>
-                        <div className="flex items-center justify-center plus-button rounded-[50%] bg-white shadow-xl cursor-pointer"><FaPlus className="text-gray-600 " /></div>
+                        <div  
+                            className="flex items-center justify-center plus-button rounded-[50%] bg-white shadow-xl cursor-pointer"
+                            onClick={()=>{context.setCount(context.count + 1)}}>
+                            <FaPlus className="text-gray-600 " />
+                        </div>
                     </div>
                 </div>
             </div>

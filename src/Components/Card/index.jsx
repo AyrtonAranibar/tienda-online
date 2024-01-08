@@ -16,13 +16,17 @@ function Card(product){
 
     let starsList = []
 
+    const showProduct = ()=>{
+        context.setThisProduct(product)
+        context.openProductDetail()
+    }
 
     for (let i = 0; i < starsFloor; i++) {
         starsList.push(<FaStar className="star duration-300 text-yellow-300 inline-block" key={i}/>);
     }
 
     return(
-        <div className="card w-52 h-80 relative mt-16">
+        <div className="card w-52 h-80 relative mt-16 cursor-pointer" onClick={()=>showProduct()}>
             <div className="details-container w-full h-5/6 bottom-0 left-0 rounded-2xl shadow-xl absolute">
                 <div className="details-info w-full bottom-0 left-0 absolute p-5 grid ">
                     {/* <GrTechnology className="w-8 h-8 mb-4 text-gray-600" /> */}

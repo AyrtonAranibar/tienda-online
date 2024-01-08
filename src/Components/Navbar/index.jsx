@@ -1,5 +1,8 @@
 import { NavLink } from "react-router-dom";
 import "./navbar.css"
+
+import { FaShoppingCart } from "react-icons/fa";
+
 import { ShoppingCartContext } from "../../Context";
 import { useContext } from "react";
 
@@ -9,7 +12,7 @@ function Navbar(){
 
     return(
         <nav className="nav-bar flex justify-between fixed z-10 w-full py-5 px-8 text-sm font-normal top-0">
-            <ul className=" flex gap-3"> 
+            <ul className="flex items-center gap-3"> 
                 <li className="font-semibold text-lg">
                     <NavLink  to='/'>
                         Shopi
@@ -70,7 +73,7 @@ function Navbar(){
                     </NavLink>
                 </li>
             </ul>
-            <ul className="flex gap-3">
+            <ul className="flex items-center gap-3 text-gray-900">
                 <li className="text-black/60">
                     lorem@gmail.com
                 </li>
@@ -101,8 +104,8 @@ function Navbar(){
                         Sign In
                     </NavLink>
                 </li>
-                <li>
-                    Carrito{context.count}
+                <li className="flex items-center">
+                    <FaShoppingCart/>{context.count}
                 </li>
             </ul>
         </nav>

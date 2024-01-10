@@ -21,6 +21,11 @@ function Card(product){
         context.openProductDetail()
     }
 
+    const addCartProduct = (productData) =>{
+        context.setCartProducts([...context.cartProducts, productData])
+        context.setCount(context.count + 1) //se puede cambiar, en vez de un contador, que se haga un lenght al cartProducts
+    }
+
     for (let i = 0; i < starsFloor; i++) {
         starsList.push(<FaStar className="star duration-300 text-yellow-300 inline-block" key={i}/>);
     }
@@ -41,7 +46,7 @@ function Card(product){
                         </p>
                         <div  
                             className="flex items-center justify-center plus-button rounded-[50%] bg-white shadow-xl cursor-pointer"
-                            onClick={()=>{context.setCount(context.count + 1)}}>
+                            onClick={()=>{addCartProduct(product.product)}}>
                             <FaPlus className="text-gray-600 " />
                         </div>
                     </div>

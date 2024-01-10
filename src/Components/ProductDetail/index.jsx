@@ -5,7 +5,6 @@ import { ShoppingCartContext } from "../../Context";
 
 function ProductDetail(){
     const context = useContext(ShoppingCartContext);
-    console.log(context.thisProduct)
     let product = context.thisProduct ? context.thisProduct.product : undefined;
     return(
         <aside className={` ${context.productDetail?"":"hidden"} product-detail flex flex-col fixed right-0 border bg-white border-black rounded-lg w-60 text-gray-800 p-6`}>

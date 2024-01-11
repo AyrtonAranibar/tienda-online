@@ -7,13 +7,13 @@ function OrderCard (props){
             <figure className="rounded-sm w-full h-full block">
                 <img className="w-full h-full object-cover " src={imageUrl} alt="figure"></img>
             </figure>
-            <div className=" text-xs font-light">
+            <div className="flex items-center text-xs font-light">
                 {title} 
             </div>
             <div className="flex items-center">
                 <p className="order-price text-sm font-medium">{price}</p>
             </div>
-            <div className="flex items-center justify-center gap-2">
+            <div className="flex items-center justify-center gap-2 cursor-pointer   ">
                 <IoClose className="w-6 h-6"/>  
             </div>
         </div>

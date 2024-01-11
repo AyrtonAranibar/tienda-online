@@ -1,20 +1,17 @@
 import "./card.css";
 import producto from "../../assets/products/mouse.png";
 
-import { FaPlus, FaStar, FaStarHalf } from "react-icons/fa";
+import { FaPlus, FaStar, FaStarHalf, FaCheck } from "react-icons/fa";
+
 import { IoPeople } from "react-icons/io5";
 // import { GrTechnology } from "react-icons/gr";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ShoppingCartContext } from "../../Context/index.jsx";
 
 function Card(product){
     const context = useContext(ShoppingCartContext);
-
-    const stars = product.product.rating.rate
-    const starsFloor = Math.floor(stars);
-    const halfStart = stars != starsFloor ? true : false;
-
-    let starsList = []
+    const [halfStar, setHalfStar] = useState(false)
+    const [starsList, setStarsList] = useState([])
 
     const showProduct = ()=>{
         context.setThisProduct(product)
@@ -28,9 +25,22 @@ function Card(product){
         context.openMyOrder()
     }
 
-    for (let i = 0; i < starsFloor; i++) {
-        starsList.push(<FaStar className="star duration-300 text-yellow-300 inline-block" key={i}/>);
+    
+
+    const addStars = ()=>{
+        const stars = product.product.rating.rate
+        const starsFloor = Math.floor(stars);
+        setHalfStar(stars != starsFloor ? true : false)
+        let starsList = []
+        for (let i = 0; i < starsFloor; i++) {
+            starsList.push(<FaStar className="star duration-300 text-yellow-300 inline-block" key={i}/>);
+        }
+        setStarsList(starsList)
     }
+
+    useEffect(()=>{
+        addStars();
+    },[])
 
     return(
         <div className="card w-52 h-80 relative mt-16 cursor-pointer" onClick={()=>showProduct()}>
@@ -58,7 +68,7 @@ function Card(product){
             <div className="star-container flex w-fit m-auto pt-3 mt-10 duration-300">
                 {starsList}
                 {
-                    halfStart ? <FaStarHalf className="star text-yellow-300 inline-block"/> : null
+                    halfStar ? <FaStarHalf className="star text-yellow-300 inline-block"/> : null
                 }
                 
             </div>

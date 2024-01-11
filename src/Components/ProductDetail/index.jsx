@@ -12,7 +12,7 @@ function ProductDetail(){
                 <h2 className="detail-title font-bold text-sm">
                     Detail
                 </h2>
-                <div className="cursor-pointer text-gray-600" onClick={()=>context.closeProductDetail()}>
+                <div className="cursor-pointer text-gray-600 hover:text-black" onClick={()=>context.closeProductDetail()}>
                     <IoClose className="w-6 h-6"/>
                 </div>
             </div> 

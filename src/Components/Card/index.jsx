@@ -21,9 +21,11 @@ function Card(product){
         context.openProductDetail()
     }
 
-    const addCartProduct = (productData) =>{
+    const addCartProduct = (event, productData) =>{
+        event.stopPropagation()
         context.setCartProducts([...context.cartProducts, productData])
         context.setCount(context.count + 1) //se puede cambiar, en vez de un contador, que se haga un lenght al cartProducts
+        context.openMyOrder()
     }
 
     for (let i = 0; i < starsFloor; i++) {
@@ -46,7 +48,7 @@ function Card(product){
                         </p>
                         <div  
                             className="flex items-center justify-center plus-button rounded-[50%] bg-white shadow-xl cursor-pointer"
-                            onClick={()=>{addCartProduct(product.product)}}>
+                            onClick={(event)=>{addCartProduct(event, product.product)}}>
                             <FaPlus className="text-gray-600 " />
                         </div>
                     </div>
@@ -66,8 +68,8 @@ function Card(product){
             </div>
                 <div className="product-price absolute right-3 top-3 text-2xl text-gray-800">{product.product.price}</div>
             </div>
-            <figure className="flex justify-center w-full mt-6 p-6 rounded-xl overflow-hidden">
-                <img src={product.product.image} alt="product" className="h-full object-fill rounded-2xl z-20 relative"/>
+            <figure className="flex justify-center w-full mt-6 p-6 rounded-xl items-center">
+                <img src={product.product.image} alt="product" className="max-h-full object-fill rounded-2xl z-20 relative"/>
             </figure>
         </div>
     )

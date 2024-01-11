@@ -7,10 +7,15 @@ const ShoppingCartProvider = ({ children }) => {
     const [count, setCount] = useState(0);
     // Product Detail
     const [productDetail, setProductDetail] = useState(false);
-    const openProductDetail = () => setProductDetail(true);
+    const openProductDetail = () => {setProductDetail(true);closeMyOrder();}
     const closeProductDetail = () => setProductDetail(false);
     const [thisProduct , setThisProduct] = useState(undefined);
     const [cartProducts , setCartProducts] = useState([]);
+    // My Order
+    const [myOrder, setMyOrder] = useState(false);
+    const toggleMyOrder = () => setMyOrder(!myOrder);
+    const openMyOrder = () => {setMyOrder(true);closeProductDetail();}
+    const closeMyOrder = () => setMyOrder(false);
 
     return (
     <ShoppingCartContext.Provider 
@@ -23,7 +28,11 @@ const ShoppingCartProvider = ({ children }) => {
         thisProduct,
         setThisProduct,
         cartProducts,
-        setCartProducts
+        setCartProducts,
+        myOrder,
+        toggleMyOrder,
+        openMyOrder,
+        closeMyOrder
       }}>
         {children}
     </ShoppingCartContext.Provider>

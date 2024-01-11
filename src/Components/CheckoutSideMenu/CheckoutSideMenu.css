@@ -1,0 +1,18 @@
+.product-detail{
+    width: 360px;
+    height: calc(100vh - 68px);
+    top: 68px;
+    z-index: 30;
+}
+.detail-title{
+    font-family: 'Cabin', sans-serif;
+}
+.product-detail-title {
+    font-family: 'Mulish', sans-serif;
+}
+.product-price-detail{
+    font-family: 'Cabin', sans-serif;
+}
+.product-price-detail::before{
+    content: "$";
+}

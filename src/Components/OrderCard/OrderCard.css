@@ -1,0 +1,20 @@
+.order-card{
+    grid-template-columns: 48px auto auto 24px;
+}
+.order-price::before{
+    content: "$";
+}
+.order-card figure{
+    position: relative;
+
+}
+.order-card figure::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    box-shadow: inset 0px 0px 4px 2px white;
+    z-index: 100;
+}

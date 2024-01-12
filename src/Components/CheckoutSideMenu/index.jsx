@@ -22,6 +22,7 @@ function CheckoutSideMenu(){
                     return( 
                     <OrderCard 
                         key={product.id}
+                        id={product.id}
                         title={product.title}
                         price={product.price}
                         imageUrl={product.image}

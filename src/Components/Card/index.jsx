@@ -25,8 +25,6 @@ function Card(product){
         context.openMyOrder()
     }
 
-    
-
     const addStars = ()=>{
         const stars = product.product.rating.rate
         const starsFloor = Math.floor(stars);
@@ -36,6 +34,27 @@ function Card(product){
             starsList.push(<FaStar className="star duration-300 text-yellow-300 inline-block" key={i}/>);
         }
         setStarsList(starsList)
+    }
+
+    const renderIcon = (id)=>{
+        const isInCart = context.cartProducts.filter(product => product.id === id).length > 0;
+        if (isInCart){
+            return(
+                <div  
+                    className="flex items-center justify-center plus-button rounded-[50%] bg-white shadow-xl cursor-pointer">
+                    <FaCheck className="text-green-400" />
+                </div>
+            )
+        }else{
+            return(
+                <div  
+                    className="flex items-center justify-center plus-button rounded-[50%] bg-white shadow-xl cursor-pointer"
+                    onClick={(event)=>{addCartProduct(event, product.product)}}>
+                    <FaPlus className="text-gray-600 " />
+                </div>
+            )
+        }
+        
     }
 
     useEffect(()=>{
@@ -56,11 +75,7 @@ function Card(product){
                             ? `${product.product.title.slice(0, 30)}...`
                             : product.product.title}
                         </p>
-                        <div  
-                            className="flex items-center justify-center plus-button rounded-[50%] bg-white shadow-xl cursor-pointer"
-                            onClick={(event)=>{addCartProduct(event, product.product)}}>
-                            <FaPlus className="text-gray-600 " />
-                        </div>
+                        {renderIcon(product.product.id)}
                     </div>
                 </div>
             </div>

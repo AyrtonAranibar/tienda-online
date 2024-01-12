@@ -1,7 +1,16 @@
 import { IoClose } from "react-icons/io5";
 import "./OrderCard.css"
+import { useContext } from "react";
+import { ShoppingCartContext } from "../../Context";
+
+
 function OrderCard (props){
-    const { title, imageUrl, price } = props;
+    const { id ,title, imageUrl, price } = props;
+    const context = useContext(ShoppingCartContext);
+    
+    const handleDelete = (id)=>{
+        context.setCartProducts(context.cartProducts.filter((product)=>product.id !== id))
+    }
     return(
         <div className="order-card grid gap-1 mt-4">
             <figure className="rounded-sm w-full h-full block">
@@ -14,7 +23,7 @@ function OrderCard (props){
                 <p className="order-price text-sm font-medium">{price}</p>
             </div>
             <div className="flex items-center justify-center gap-2 cursor-pointer   ">
-                <IoClose className="w-6 h-6"/>  
+                <IoClose onClick={()=>handleDelete(id)} className="w-6 h-6"/>  
             </div>
         </div>
     )

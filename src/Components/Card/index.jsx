@@ -21,7 +21,6 @@ function Card(product){
     const addCartProduct = (event, productData) =>{
         event.stopPropagation()
         context.setCartProducts([...context.cartProducts, productData])
-        context.setCount(context.count + 1) //se puede cambiar, en vez de un contador, que se haga un lenght al cartProducts
         context.openMyOrder()
     }
 

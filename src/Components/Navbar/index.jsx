@@ -4,11 +4,15 @@ import "./navbar.css"
 import { FaShoppingCart } from "react-icons/fa";
 
 import { ShoppingCartContext } from "../../Context";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 function Navbar(){
     const activeStyle = 'underline underline-offset-4 ';
     const context = useContext(ShoppingCartContext)
+    useEffect(()=>{
+        console.log("se actualizo cart products", context.cartProducts.length)
+        context.setCount(context.cartProducts.length)
+    },[context.cartProducts]);
     return(
         <nav className="nav-bar flex justify-between fixed z-10 w-full py-5 px-8 text-sm font-normal top-0">
             <ul className="flex items-center gap-3"> 

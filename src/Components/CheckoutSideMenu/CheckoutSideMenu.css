@@ -13,6 +13,7 @@
 .product-price-detail{
     font-family: 'Cabin', sans-serif;
 }
-.product-price-detail::before{
-    content: "$";
+.priced::before{
+    font-family: 'Cabin', sans-serif;
+    content: "$ ";
 }

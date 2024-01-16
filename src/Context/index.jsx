@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-
+import { totalPrice } from "../Components/utils";
 const ShoppingCartContext = createContext();
 
 const ShoppingCartProvider = ({ children }) => {
@@ -17,6 +17,11 @@ const ShoppingCartProvider = ({ children }) => {
     const openMyOrder = () => {setMyOrder(true);closeProductDetail();}
     const closeMyOrder = () => setMyOrder(false);
 
+    // Functions
+    const cartTotalPrice = totalPrice(cartProducts);
+
+
+    console.log(cartProducts);
     return (
     <ShoppingCartContext.Provider 
       value={{
@@ -32,7 +37,8 @@ const ShoppingCartProvider = ({ children }) => {
         myOrder,
         toggleMyOrder,
         openMyOrder,
-        closeMyOrder
+        closeMyOrder,
+        cartTotalPrice
       }}>
         {children}
     </ShoppingCartContext.Provider>

@@ -29,6 +29,11 @@ function CheckoutSideMenu(){
                     />)
                 })}
             </div>
+            <div className="flex items-center justify-between pr-4 pt-2">
+            <span className="text-sm">Total:</span>
+            <span className="priced font-bold text-lg">{context.cartTotalPrice}</span>
+                
+            </div>
         </aside>
     )
 }

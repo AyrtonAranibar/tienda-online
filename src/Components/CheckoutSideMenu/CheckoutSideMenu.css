@@ -17,3 +17,6 @@
     font-family: 'Cabin', sans-serif;
     content: "$ ";
 }
+.order-button{
+    background-color: rgba(62, 255, 189, 0.89);
+}

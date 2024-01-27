@@ -10,7 +10,6 @@ function Navbar(){
     const activeStyle = 'underline underline-offset-4 ';
     const context = useContext(ShoppingCartContext)
     useEffect(()=>{
-        console.log("se actualizo cart products", context.cartProducts.length)
         context.setCount(context.cartProducts.length)
     },[context.cartProducts]);
     return(

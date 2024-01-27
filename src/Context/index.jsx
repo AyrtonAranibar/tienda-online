@@ -16,12 +16,11 @@ const ShoppingCartProvider = ({ children }) => {
     const toggleMyOrder = () => setMyOrder(!myOrder);
     const openMyOrder = () => {setMyOrder(true);closeProductDetail();}
     const closeMyOrder = () => setMyOrder(false);
-
+    // Orders
+    const [order, setOrder] = useState([])
     // Functions
     const cartTotalPrice = totalPrice(cartProducts);
 
-
-    console.log(cartProducts);
     return (
     <ShoppingCartContext.Provider 
       value={{
@@ -38,7 +37,9 @@ const ShoppingCartProvider = ({ children }) => {
         toggleMyOrder,
         openMyOrder,
         closeMyOrder,
-        cartTotalPrice
+        cartTotalPrice,
+        order,
+        setOrder
       }}>
         {children}
     </ShoppingCartContext.Provider>

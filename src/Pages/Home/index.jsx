@@ -15,11 +15,13 @@ function Home() {
 
     return (
         <Layout>
-        {
-            items?.map((product)=>{
-                return <Card product={product} key={product.id}/>
-            })
-        }
+        <div className="grid grid-cols-3 gap-4">
+            {
+                items?.map((product)=>{
+                    return <Card product={product} key={product.id}/>
+                })
+            }
+        </div>
         <ProductDetail/>
         </Layout>
     )

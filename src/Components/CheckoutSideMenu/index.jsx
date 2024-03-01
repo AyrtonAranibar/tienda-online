@@ -1,5 +1,6 @@
 import "./CheckoutSideMenu.css"
 import { IoClose } from "react-icons/io5";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
 import OrderCard from "../../Components/OrderCard";
@@ -11,16 +12,17 @@ function CheckoutSideMenu(){
     const handleCheckOut = ()=>{
         const orderToAdd = {
             date:Date.now(),
-            products: context.cartProducts,
-            totalProducts: context.cartProducts.length,
-            totalPrice: totalPrice(context.cartProducts)
+            products: productList,
+            totalProducts: productList.length,
+            totalPrice: totalPrice(productList)
         }
         context.setOrder([...context.order,orderToAdd])
         context.setCartProducts([])
-        console.log(context.order)
     }
     return(
-        <aside className={` ${context.myOrder?"flex":"hidden"} product-detail  flex-col fixed right-0 border bg-white border-black rounded-lg w-64 text-gray-800 p-4 pr-0`}>
+        <aside className={` ${context.myOrder?"flex":"hidden"} product-detail  
+        flex-col fixed right-0 border bg-white bg-opacity-70
+        rounded-lg w-64 text-gray-800 p-4 pr-0 shadow-xl `}>
             <div className="flex justify-between items-center mb-2">
                 <h2 className="detail-title font-bold text-sm">
                     My Order
@@ -38,6 +40,7 @@ function CheckoutSideMenu(){
                         title={product.title}
                         price={product.price}
                         imageUrl={product.image}
+                        canDelete={true}
                     />)
                 })}
             </div>
@@ -46,9 +49,11 @@ function CheckoutSideMenu(){
                 <span className="priced font-bold text-lg">{context.cartTotalPrice}</span>
             </div>
             <div className="flex items-center justify-center">
-                <button className={`${context.cartProducts.length?"":"hidden"} order-button w-full h-auto rounded py-1 px-2 mr-4`} onClick={()=>handleCheckOut()}>
-                    Let's Buy these!
-                </button>
+                <Link to="my-orders/last">
+                    <button className={`${productList.length?"":"hidden"} order-button w-full h-auto rounded py-1 px-2 mr-4`} onClick={()=>handleCheckOut()}>
+                        Let's Buy these!
+                    </button>
+                </Link>
             </div>
         </aside>
     )

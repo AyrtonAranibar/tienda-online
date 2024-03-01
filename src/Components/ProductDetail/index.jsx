@@ -20,7 +20,7 @@ function ProductDetail(){
             {product && (
                 <>
                 <figure className="h-fit py-3">
-                    <img className="rounded-lg max-h-40 m-auto object-contain" src={product.image} alt={product.title} />
+                    <img className="rounded-lg max-h-40 m-auto object-contain" loading="lazy" src={product.image} alt={product.title} />
                 </figure>
                 <p className="product-price-detail font-bold text-xl py-1">{product.price}</p>
                 <p className="product-detail-title font-bold text-xs">{product.title}</p>

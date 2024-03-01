@@ -13,8 +13,9 @@ function Navbar(){
         context.setCount(context.cartProducts.length)
     },[context.cartProducts]);
     return(
-        <nav className="nav-bar flex justify-between fixed z-10 w-full py-5 px-8 text-sm font-normal top-0">
-            <ul className="flex items-center gap-3"> 
+        <nav className="nav-bar flex justify-between fixed z-10 w-full py-5 px-8 text-sm font-normal top-0
+                        bg-gradient-to-b from-white">
+            <ul className="flex items-center gap-3 z-10"> 
                 <li className="font-semibold text-lg">
                     <NavLink  to='/'>
                         Shopi
@@ -75,7 +76,7 @@ function Navbar(){
                     </NavLink>
                 </li>
             </ul>
-            <ul className="flex items-center gap-3 text-gray-900">
+            <ul className="flex items-center gap-3 text-gray-900  z-10">
                 <li className="text-black/60">
                     lorem@gmail.com
                 </li>

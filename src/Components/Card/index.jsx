@@ -93,7 +93,7 @@ function Card(product){
                 <div className="product-price absolute right-3 top-3 text-2xl text-gray-800">{product.product.price}</div>
             </div>
             <figure className="flex justify-center w-full mt-6 p-6 rounded-xl items-center">
-                <img src={product.product.image} alt="product" className="max-h-full object-fill rounded-2xl z-20 relative"/>
+                <img src={product.product.image} loading="lazy" alt="product" className="max-h-full object-fill rounded-2xl z-auto relative"/>
             </figure>
         </div>
     )

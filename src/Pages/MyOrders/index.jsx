@@ -1,33 +1,32 @@
-import { IoIosArrowBack, IoIosArrowForward  } from "react-icons/io";
 import Layout from '../../Components/Layout';
 import { Link } from "react-router-dom";
 import OrdersCard from '../../Components/OrdersCard'
 import { useContext } from 'react'
-import { ShoppingCartProvider } from '../../Context'
+import { ShoppingCartContext } from '../../Context'
 
 function MyOrders() {
-    const context = useContext(ShoppingCartProvider);
-    
+    const context = useContext(ShoppingCartContext);
+    console.log(context.order)
     return (
         <Layout>
-        <div>
-            <div className=" w-80 m-auto" >
-                <Link className="flex justify-between" to={'/my-order'}>
-                    <IoIosArrowBack className="cursor-pointer"/>
-                    <h1>My Orders</h1>
-                </Link>
+        <div  className="w-80 m-auto">
+            <div className="">
+                <h1>My Orders</h1>
             </div>
-                {/* {
-                    context.order.map((order)=>{
+
+                {
+                    context.order.map((order)=>(
                         <Link key={order.id} to={`/my-orders/${order.id}`}>
                             <OrdersCard
+                                id = {order.id}
                                 date={order.date}
                                 totalPrice={order.totalPrice}
                                 totalProducts={order.totalProducts}
                             />  
                         </Link>
-                    })
-                } */}
+                    ))
+                }
+            
         </div>
 
             

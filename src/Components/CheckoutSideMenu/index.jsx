@@ -5,16 +5,18 @@ import { useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
 import OrderCard from "../../Components/OrderCard";
 import { totalPrice } from "../utils";
+import { v4 as uuidv4 } from 'uuid';
 
 function CheckoutSideMenu(){
     const context = useContext(ShoppingCartContext);
     let productList = context.cartProducts;
     const handleCheckOut = ()=>{
         const orderToAdd = {
+            id: uuidv4(),
             date:Date.now(),
             products: productList,
             totalProducts: productList.length,
-            totalPrice: totalPrice(productList)
+            totalPrice: totalPrice(productList),
         }
         context.setOrder([...context.order,orderToAdd])
         context.setCartProducts([])

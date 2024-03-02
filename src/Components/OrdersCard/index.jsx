@@ -5,17 +5,20 @@ import { ShoppingCartContext } from "../../Context";
 
 
 function OrdersCard (props){
-    const { date, totalPrice, totalProducts } = props;
+    const { id, date, totalPrice, totalProducts } = props;
     const context = useContext(ShoppingCartContext);
     
-    
+    const formatDate = (date) => {
+        const formattedDate = new Date(date).toLocaleString();
+        return formattedDate;
+    }
 
     const handleDelete = (id)=>{
         context.setCartProducts(context.cartProducts.filter((product)=>product.id !== id))
     }
     return(
         <div className="order-card grid gap-1 mt-4">
-            <span>{date}</span>
+            <span>{formatDate(date)}</span>
             <p>{totalPrice}</p>
             <p>{totalProducts}</p>
         </div>

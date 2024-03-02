@@ -1,4 +1,4 @@
-import "./card.css";
+import "./Card.css";
 import producto from "../../assets/products/mouse.png";
 
 import { FaPlus, FaStar, FaStarHalf, FaCheck } from "react-icons/fa";

@@ -1,0 +1,22 @@
+
+.my-orders{
+    font-family: 'Cabin', sans-serif;
+}
+.title-container{
+    overflow: hidden;
+}
+
+.orders-title{
+    grid-template-columns: 210px auto  70px;
+    gap: 0.25rem;
+}
+.title-container::before{
+    content:"";
+    width: 150px;
+    height: 150px;
+    transform: rotate(45deg);
+    top:-30%;
+    left: 30%;
+    position: absolute;
+    background: linear-gradient(-135deg,rgba(62, 255, 189, 0.737) 20%, rgb(47, 238, 229) 70%);
+}

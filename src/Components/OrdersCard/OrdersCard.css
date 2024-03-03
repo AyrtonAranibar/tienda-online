@@ -1,7 +1,11 @@
 .order-card{
-    grid-template-columns: 48px auto auto 24px;
+    grid-template-columns: 210px auto  70px;
 }
-.order-price::before{
+.price{
+    /* font-family: 'Mulish', sans-serif; */
+    font-family: 'Cabin', sans-serif;
+}
+.price::before{
     content: "$";
 }
 .order-card figure{
@@ -16,4 +20,8 @@
     width: inherit;
     height: inherit;
     z-index: 100;
+}
+.order-details{
+    font-family: 'Mulish', sans-serif;
+    font-size: large;
 }

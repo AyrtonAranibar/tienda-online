@@ -29,7 +29,7 @@ function OrderCard (props){
                     <img className="w-full h-full object-contain " loading="lazy" src={imageUrl} alt="figure"></img>
                 </figure>
             </div>
-            <div className="flex-grow items-center text-xs font-light">
+            <div className="flex items-center jutify-center text-xs font-light">
                 {title} 
             </div>
             <div className="flex items-center justify-center">

@@ -17,3 +17,9 @@
     height: inherit;
     z-index: 100;
 }
+.bordered-div{
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}

@@ -10,6 +10,7 @@ function OrderCard (props){
     const canDeleteLenght = canDelete ? 4 : 3;
     const largeGrid = {
         gridTemplateColumns: `48px auto auto 24px`,
+        backGroundColor: ``,
     };
     const smallGrid = {
         gridTemplateColumns: `48px auto 60px`,
@@ -23,7 +24,7 @@ function OrderCard (props){
 
 
     return(
-        <div className={`order-card grid mt-4 gap-2 grid-cols-${canDeleteLenght}`} style={gridStyles}>
+        <div className={`order-card grid mt-4 gap-2 grid-cols-${canDeleteLenght} ${canDelete==false?'bordered-div':''}`} style={gridStyles}>
             <div className="w-12 h-full flex items-center justify-center">
                 <figure className="rounded-lg w-12 h-12 block overflow-hidden">
                     <img className="w-full h-full object-contain " loading="lazy" src={imageUrl} alt="figure"></img>

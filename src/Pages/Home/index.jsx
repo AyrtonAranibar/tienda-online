@@ -1,27 +1,26 @@
 import Layout from "../../Components/Layout"
 import Card from "../../Components/Card"
 import ProductDetail from "../../Components/ProductDetail";
-import { useEffect, useState } from "react"
-
+import { useContext } from "react";
+import { ShoppingCartContext } from "../../Context";
 
 function Home() {
-    const [items, setItems] = useState(null);
-
-    useEffect(()=>{
-        fetch("https://fakestoreapi.com/products")
-        .then( result => result.json())
-        .then( data => setItems(data))
-    },[])
+    const context = useContext(ShoppingCartContext);
 
     return (
         <Layout>
-        <div className="grid grid-cols-3 gap-4">
+        <div>
+            <input className="p-2 py-3 rounded-lg" type="text" placeholder="Seach a product" onChange={(event)=>{
+                context.setTitleToSearch(event.target.value);
+            }}></input>
+        </div>
+        <section className="grid grid-cols-3 gap-4">
             {
-                items?.map((product)=>{
+                context.itemsToRender?.map((product)=>{
                     return <Card product={product} key={product.id}/>
                 })
             }
-        </div>
+        </section>
         <ProductDetail/>
         </Layout>
     )

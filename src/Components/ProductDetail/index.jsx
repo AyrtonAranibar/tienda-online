@@ -7,7 +7,7 @@ function ProductDetail(){
     const context = useContext(ShoppingCartContext);
     let product = context.thisProduct ? context.thisProduct.product : undefined;
     return(
-        <aside className={` ${context.productDetail?"":"hidden"} product-detail flex flex-col fixed right-0 border bg-white border-black rounded-lg w-64 text-gray-800 p-4 overflow-y-auto`}>
+        <aside className={` ${context.productDetail?"":"hidden"} product-detail flex flex-col fixed right-0 border bg-white shadow-xl bg-opacity-50 rounded-lg w-64 text-gray-800 p-4 overflow-y-auto`}>
             <div className="flex justify-between items-center">
                 <h2 className="detail-title font-bold text-sm">
                     Detail

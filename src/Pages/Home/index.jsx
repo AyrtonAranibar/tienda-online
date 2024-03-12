@@ -16,6 +16,11 @@ function Home() {
         </div>
         <section className="grid grid-cols-3 gap-4">
             {
+                context.itemsToRender==null && context.item?.map((product)=>{
+                    return <Card product={product} key={product.id}/>
+                })
+            }
+            {
                 context.itemsToRender?.map((product)=>{
                     return <Card product={product} key={product.id}/>
                 })

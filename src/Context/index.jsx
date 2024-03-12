@@ -26,7 +26,14 @@ const ShoppingCartProvider = ({ children }) => {
     // Items
     const [items, setItems] = useState(null);
     const [filteredItems, setFilteredItems] = useState(null);
-    const [titleToSearch, setTitleToSearch] = useState(null);
+    const [titleToSearch, setTitleToSearch] = useState("");
+
+    // Routing 
+    const [searchByCategory, setSearchByCategory] = useState(null);
+
+    // Render
+    const [itemsToRender, setItemsToRender] = useState(null);
+
 
     useEffect(()=>{
         fetch("https://fakestoreapi.com/products")
@@ -34,15 +41,31 @@ const ShoppingCartProvider = ({ children }) => {
         .then( data => setItems(data))
     },[])
 
-    const searchProductByName = ( items,titleToSearch )=>{
-      return items?.filter(item=>item.title.toLowerCase().includes(titleToSearch.toLowerCase()));
+
+    const searchProductCategoryUrl = ( items,searchByCategory )=>{
+      return items?.filter(item=>item.category.toLowerCase() == searchByCategory.toLowerCase());
+    }
+
+    const searchProductByName = ( itemsToRender,titleToSearch )=>{
+      return itemsToRender?.filter(item=>item.title.toLowerCase().includes(titleToSearch.toLowerCase()));
     }
     
     useEffect(()=>{
-      setFilteredItems(searchProductByName(items,titleToSearch));
-  },[titleToSearch]);
+      setItemsToRender(searchProductByName(filteredItems,titleToSearch));
+      console.log(titleToSearch);
 
-  const itemsToRender = titleToSearch?.length > 0 ? filteredItems : items;
+    },[titleToSearch,filteredItems]);
+
+    useEffect(()=>{
+      if(searchByCategory=='all'){
+        setFilteredItems(items);
+      }else{
+        console.log(searchByCategory);
+        setFilteredItems(searchProductCategoryUrl(items,searchByCategory));
+      }
+      setItemsToRender(filteredItems);
+    },[searchByCategory]);
+
 
     return (
     <ShoppingCartContext.Provider 
@@ -66,7 +89,9 @@ const ShoppingCartProvider = ({ children }) => {
         items,
         setItems,
         setTitleToSearch,
-        itemsToRender
+        itemsToRender,
+        setSearchByCategory,
+        searchByCategory
       }}>
         {children}
     </ShoppingCartContext.Provider>

@@ -17,13 +17,18 @@ function Navbar(){
                         bg-gradient-to-b from-white">
             <ul className="flex items-center gap-3 z-10"> 
                 <li className="font-semibold text-lg">
-                    <NavLink  to='/'>
+                    <NavLink  
+                    to='/'
+                    onClick={()=>context.setSearchByCategory("all")}
+                    
+                    >
                         Shopi
                     </NavLink>
                 </li>
                 <li>
                     <NavLink 
                     to='/all'
+                    onClick={()=>context.setSearchByCategory("all")}
                     className={({isActive})=>
                         isActive ? activeStyle : undefined
                     }>
@@ -32,41 +37,46 @@ function Navbar(){
                 </li>
                 <li>
                     <NavLink 
-                    to='/clothes'
+                    to='/mens-clothing'
+                    onClick={()=>context.setSearchByCategory("men's clothing")}
                     className={({isActive})=>
                         isActive ? activeStyle : undefined
                     }>
-                        Clothes
+                        Men's Clothing
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink 
+                    to='/womens-clothing'
+                    onClick={()=>context.setSearchByCategory("women's clothing")}
+                    className={({isActive})=>
+                        isActive ? activeStyle : undefined
+                    }>
+                        Women's Clothing
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink 
+                    to='/jewelery'
+                    onClick={()=>context.setSearchByCategory('jewelery')}
+                    className={({isActive})=>
+                        isActive ? activeStyle : undefined
+                    }>
+                        Jewelery
                     </NavLink>
                 </li>
                 <li>
                     <NavLink 
                     to='/electronics'
+                    onClick={()=>context.setSearchByCategory('electronics')}
                     className={({isActive})=>
                         isActive ? activeStyle : undefined
                     }>
                         Electronics
                     </NavLink>
                 </li>
-                <li>
-                    <NavLink 
-                    to='/furnitures'
-                    className={({isActive})=>
-                        isActive ? activeStyle : undefined
-                    }>
-                        Furnitures
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink 
-                    to='/toys'
-                    className={({isActive})=>
-                        isActive ? activeStyle : undefined
-                    }>
-                        Toys
-                    </NavLink>
-                </li>
-                <li>
+
+                {/* <li>
                     <NavLink 
                     to='/others'
                     className={({isActive})=>
@@ -74,7 +84,7 @@ function Navbar(){
                     }>
                         Others
                     </NavLink>
-                </li>
+                </li> */}
             </ul>
             <ul className="flex items-center gap-3 text-gray-900  z-10">
                 <li className="text-black/60">

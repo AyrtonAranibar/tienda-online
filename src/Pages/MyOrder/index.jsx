@@ -15,9 +15,7 @@ function MyOrder() {
     let ordersList = null;
     if(orderId.length > 0 && orderId != "last"){
         ordersList = productList.filter(order => order.id == orderId)
-        console.log(ordersList)
         productList = null;
-
     }
 
     return (

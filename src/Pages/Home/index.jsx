@@ -6,7 +6,7 @@ import { ShoppingCartContext } from "../../Context";
 
 function Home() {
     const context = useContext(ShoppingCartContext);
-
+    // console.log(context.itemsToRender?"lleno":"vacio");
     return (
         <Layout>
         <div>
@@ -16,7 +16,7 @@ function Home() {
         </div>
         <section className="grid grid-cols-3 gap-4">
             {
-                context.itemsToRender==null && context.item?.map((product)=>{
+                context.itemsToRender==null && context.items?.map((product)=>{
                     return <Card product={product} key={product.id}/>
                 })
             }

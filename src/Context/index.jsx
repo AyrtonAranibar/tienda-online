@@ -36,9 +36,10 @@ const ShoppingCartProvider = ({ children }) => {
 
 
     useEffect(()=>{
-        fetch("https://fakestoreapi.com/products")
-        .then( result => result.json())
-        .then( data => setItems(data))
+      fetch("https://fakestoreapi.com/products")
+      .then( result => result.json())
+      .then( data => setItems(data))
+
     },[])
 
 
@@ -52,19 +53,28 @@ const ShoppingCartProvider = ({ children }) => {
     
     useEffect(()=>{
       setItemsToRender(searchProductByName(filteredItems,titleToSearch));
-      console.log(titleToSearch);
 
     },[titleToSearch,filteredItems]);
 
     useEffect(()=>{
-      if(searchByCategory=='all'){
-        setFilteredItems(items);
+      let localCategory = localStorage.getItem('category');
+      const currentUrl = window.location.pathname;
+      const categoryUrl = currentUrl.substring( currentUrl.lastIndexOf("/") + 1)
+      if(searchByCategory==null && localCategory && categoryUrl != ""){
+        setFilteredItems(searchProductCategoryUrl(items,localCategory));
+        setItemsToRender(filteredItems);
       }else{
-        console.log(searchByCategory);
-        setFilteredItems(searchProductCategoryUrl(items,searchByCategory));
+        if(searchByCategory=='all' || categoryUrl==""){
+          setFilteredItems(items);
+        }else{
+          if(searchByCategory!=null){
+          localStorage.setItem('category',searchByCategory);
+          }
+          setFilteredItems(searchProductCategoryUrl(items,searchByCategory));
+        }
+        setItemsToRender(filteredItems);
       }
-      setItemsToRender(filteredItems);
-    },[searchByCategory]);
+    },[searchByCategory,items]);
 
 
     return (

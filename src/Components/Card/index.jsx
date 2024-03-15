@@ -61,7 +61,7 @@ function Card(product){
     },[])
 
     return(
-        <div className="card w-52 h-80 relative mt-16 cursor-pointer" onClick={()=>showProduct()}>
+        <div className="card w-52 h-80 relative mt-16 cursor-pointer mx-auto" onClick={()=>showProduct()}>
             <div className="details-container w-full h-5/6 bottom-0 left-0 rounded-2xl shadow-xl absolute">
                 <div className="details-info w-full bottom-0 left-0 absolute p-5 grid ">
                     {/* <GrTechnology className="w-8 h-8 mb-4 text-gray-600" /> */}

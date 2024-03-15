@@ -34,6 +34,9 @@ const ShoppingCartProvider = ({ children }) => {
     // Render
     const [itemsToRender, setItemsToRender] = useState(null);
 
+    // Hidde Navbar
+
+    const [hiddeNavbar, setHiddeNavbar] = useState(false);
 
     useEffect(()=>{
       fetch("https://fakestoreapi.com/products")
@@ -76,7 +79,10 @@ const ShoppingCartProvider = ({ children }) => {
       }
     },[searchByCategory,items]);
 
-
+    const toggleHiddeNavbar = ()=>{
+      setHiddeNavbar(!hiddeNavbar);
+    }
+    //nota: cambiar el fondo, agregarle un my account con local storage y que cambie el correo, y cambiar el grid , volverlo responsive, paginacion.
     return (
     <ShoppingCartContext.Provider 
       value={{
@@ -101,7 +107,9 @@ const ShoppingCartProvider = ({ children }) => {
         setTitleToSearch,
         itemsToRender,
         setSearchByCategory,
-        searchByCategory
+        searchByCategory,
+        toggleHiddeNavbar,
+        hiddeNavbar
       }}>
         {children}
     </ShoppingCartContext.Provider>

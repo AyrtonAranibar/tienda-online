@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./Navbar.css"
 
 import { FaShoppingCart } from "react-icons/fa";
+import { IoMdMenu } from "react-icons/io";
 
 import { ShoppingCartContext } from "../../Context";
 import { useContext, useEffect } from "react";
@@ -13,14 +14,15 @@ function Navbar(){
         context.setCount(context.cartProducts.length)
     },[context.cartProducts]);
     return(
-        <nav className="nav-bar flex justify-between fixed z-10 w-full py-5 px-8 text-sm font-normal top-0
-                        bg-gradient-to-b from-white">
-            <ul className="flex items-center gap-3 z-10"> 
+        <>
+<nav className={`nav-bar flex justify-between fixed z-20 w-full py-5 px-8 text-sm font-normal top-0
+                        bg-gradient-to-b from-white ${context.hiddeNavbar?"invisible":"visible"}`}>
+            <ul className="flex items-center gap-3 z-20"> 
                 <li className="font-semibold text-lg">
                     <NavLink  
                     to='/'
                     onClick={()=>context.setSearchByCategory("all")}
-                    
+                    className={"mobile-hidded"}
                     >
                         Shopi
                     </NavLink>
@@ -87,7 +89,7 @@ function Navbar(){
                 </li> */}
             </ul>
             <ul className="flex items-center gap-3 text-gray-900  z-10">
-                <li className="text-black/60">
+                <li className="text-black/60 mobile-hidded">
                     lorem@gmail.com
                 </li>
                 <li>
@@ -124,6 +126,11 @@ function Navbar(){
                 </li>
             </ul>
         </nav>
+        <IoMdMenu 
+            className="burger-icon z-50 fixed top-0 right-0 text-3xl m-4"
+            onClick={()=>{context.toggleHiddeNavbar()}}
+        />  
+        </>
     )
 }
 

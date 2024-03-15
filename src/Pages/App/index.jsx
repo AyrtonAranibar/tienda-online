@@ -2,6 +2,7 @@ import { useRoutes, BrowserRouter } from 'react-router-dom'
 
 import { ShoppingCartProvider } from '../../Context/index.jsx'
 
+
 import './App.css'
 
 import Home from "../Home"
@@ -14,6 +15,7 @@ import SignIn from "../SignIn"
 
 import Navbar from '../../Components/Navbar'
 import CheckoutSideMenu from "../../Components/CheckoutSideMenu"
+
 
 
 const AppRoutes = ()=>{

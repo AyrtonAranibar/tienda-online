@@ -1,3 +1,33 @@
 .nav-bar a:hover{
     color: rgb(54, 215, 159);
 }
+.mobile-hidded{
+    display: block;
+}
+.hidden{
+    visibility:collapse;
+}
+@media (max-width:800px) {
+    .nav-bar{
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    .nav-bar ul{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0.75rem;
+    }
+    .mobile-hidded{
+        display: none;
+    }
+
+}
+@media (min-width:802px){
+    .nav-bar{
+        visibility:visible !important;
+    }
+    .burger-icon{
+        display: none;
+    }
+}

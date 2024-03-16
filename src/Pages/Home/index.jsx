@@ -11,7 +11,7 @@ function Home() {
     return (
         <Layout>
         <div className="p-4">
-            <input className="p-2 py-3 rounded-lg shadow-lg" type="text" placeholder="Search a product" value={context.titleToSearch} onChange={(event)=>{
+            <input className="w-72 p-2 py-3 rounded-lg shadow-lg" type="text" placeholder="Search a product by title" value={context.titleToSearch} onChange={(event)=>{
                 context.setTitleToSearch(event.target.value);
             }}></input>
         </div>

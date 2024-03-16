@@ -53,7 +53,7 @@ function CheckoutSideMenu(){
             <div className="flex items-center justify-center">
                 <Link to="my-orders/last">
                     <button className={`${productList.length?"":"hidden"} order-button w-full h-auto rounded py-1 px-2 mr-4`} onClick={()=>handleCheckOut()}>
-                        Let's Buy these!
+                        Get it now!
                     </button>
                 </Link>
             </div>

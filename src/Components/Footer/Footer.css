@@ -1,0 +1,15 @@
+.footer{
+    background: rgb(62, 255, 187) !important;
+}
+@media (max-width:400px) {
+    .f-text {
+        font-size: 10px !important;
+
+    }
+    .f-icons{
+        font-size: 15px !important;
+        margin:0px;
+        margin-left: 5px !important;
+        margin-right: 5px !important;
+    }
+}

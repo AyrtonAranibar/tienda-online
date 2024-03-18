@@ -12,9 +12,9 @@ import MyOrders from "../MyOrders"
 import NotFound from "../NotFound"
 import SignIn from "../SignIn"
 
-
 import Navbar from '../../Components/Navbar'
 import CheckoutSideMenu from "../../Components/CheckoutSideMenu"
+import Footer from '../../Components/Footer/index.jsx'
 
 
 
@@ -45,6 +45,7 @@ function App() {
         <Navbar/>
         <AppRoutes/>
         <CheckoutSideMenu/>
+        <Footer/>
       </BrowserRouter>
     </ShoppingCartProvider>
   )

@@ -38,11 +38,20 @@ const ShoppingCartProvider = ({ children }) => {
 
     const [hiddeNavbar, setHiddeNavbar] = useState(false);
 
+    // Users
+
+    const [users, setUsers] = useState([]);
+
+    const [thisId, setThisId] = useState(null);
+    const [thisUsername, setThisUsername] = useState(null);
+    const [thisEmail, setThisEmail] = useState(null);
+
+
     useEffect(()=>{
       fetch("https://fakestoreapi.com/products")
       .then( result => result.json())
       .then( data => setItems(data))
-
+      setUsers(JSON.parse(localStorage.getItem('users')));
     },[])
 
 
@@ -109,7 +118,15 @@ const ShoppingCartProvider = ({ children }) => {
         setSearchByCategory,
         searchByCategory,
         toggleHiddeNavbar,
-        hiddeNavbar
+        hiddeNavbar,
+        users,
+        setUsers,
+        setThisId,
+        thisUsername,
+        setThisUsername,
+        thisEmail,
+        setThisEmail,
+        thisId,
       }}>
         {children}
     </ShoppingCartContext.Provider>

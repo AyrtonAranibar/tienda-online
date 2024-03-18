@@ -7,7 +7,6 @@ import { ShoppingCartContext } from "../../Context";
 
 function Home() {
     const context = useContext(ShoppingCartContext);
-    // console.log(context.itemsToRender?"lleno":"vacio");
     return (
         <Layout>
         <div className="p-4">

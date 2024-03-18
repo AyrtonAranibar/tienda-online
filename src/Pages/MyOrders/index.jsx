@@ -7,7 +7,6 @@ import { ShoppingCartContext } from '../../Context'
 
 function MyOrders() {
     const context = useContext(ShoppingCartContext);
-    context.setTitleToSearch('');
     return (
         <Layout>
         <div  className="max-w-[24rem] m-auto">

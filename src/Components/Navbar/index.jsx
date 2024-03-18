@@ -90,7 +90,7 @@ function Navbar(){
             </ul>
             <ul className="flex items-center gap-3 text-gray-900  z-10">
                 <li className="text-black/60 mobile-hidded">
-                    lorem@gmail.com
+                    {context.thisEmail?context.thisEmail:""}
                 </li>
                 <li>
                     <NavLink 

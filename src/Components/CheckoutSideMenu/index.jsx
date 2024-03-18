@@ -19,6 +19,20 @@ function CheckoutSideMenu(){
             totalPrice: totalPrice(productList),
         }
         context.setOrder([...context.order,orderToAdd])
+        if(context.thisId!=null){
+            const users = JSON.parse(localStorage.getItem('users'))
+            let thisUser = users.find(user => user.id === context.thisId);
+            thisUser.orders = [...context.order,orderToAdd];
+            const newUsers = users.map(user => {
+                if(user.id === context.thisId){
+                    return thisUser
+                }else{
+                    return user
+                }
+            });
+            localStorage.setItem('users', JSON.stringify(newUsers));
+            context.setUsers(newUsers);
+        }
         context.setCartProducts([])
     }
     return(

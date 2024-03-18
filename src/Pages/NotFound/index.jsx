@@ -7,7 +7,6 @@ import { NavLink } from "react-router-dom";
 
 function NotFound() {
     const context = useContext(ShoppingCartContext);
-    context.setTitleToSearch('');
     return (
         <Layout>
             <section className="not-found-content max-w-[24rem] m-auto">

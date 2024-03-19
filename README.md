@@ -9,7 +9,7 @@ Es importante tener en cuenta que este proyecto es puramente visual, lo que sign
 
 ## Imágenes del proyecto
 
-![Página principal](https://raw.githubusercontent.com/AyrtonAranibar/tienda-online/master/src/images/TaskManagerImage.png)
+![Página principal](https://raw.githubusercontent.com/AyrtonAranibar/tienda-online/master/src/images/shopi.png)
 
 ![Hover en producto](https://raw.githubusercontent.com/AyrtonAranibar/tienda-online/master/src/images/hover_product.png)
 

@@ -5,7 +5,7 @@ import { ShoppingCartContext } from '../../Context'
 function MyAccount() {
     const context = useContext(ShoppingCartContext);
     context.setTitleToSearch('');
-    
+    console.log(context.thisUsername)
     return (
         <Layout>
 
@@ -14,8 +14,18 @@ function MyAccount() {
                         <h1 className="sign-title font-bold text-gray-800">My Account</h1>
                 </div>
                 <div className="flex flex-col gap-1 grid-cols-2 grid-rows-2 p-4 mx-4 rounded-lg bg-white bg-opacity-50 mb-4">
-                    <p>{context.thisUsername}</p>
-                    <p>{context.thisEmail}</p>
+                    
+                    {context.thisUsername?(
+                        <>
+                        <p className="mt-2">Your Username</p>
+                        <p className="text-sm mb-2">{context.thisUsername}</p>
+                        <p >Your email:</p>
+                        <p className="text-sm mb-2">{context.thisEmail}</p>
+                        </>
+
+                    ):<p>Sin usuario</p>}
+                    
+                    
                 </div>  
             </div>
         </Layout>

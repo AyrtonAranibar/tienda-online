@@ -2,6 +2,8 @@ import "./Home.css"
 import Layout from "../../Components/Layout"
 import Card from "../../Components/Card"
 import ProductDetail from "../../Components/ProductDetail";
+import ProductNotFound from "../../Components/ProductNotFound";
+
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
 
@@ -25,7 +27,13 @@ function Home() {
                     return <Card product={product} key={product.id}/>
                 })
             }
+            
         </section>
+        <div className="p-4 ">
+            {context.itemsToRender && context.itemsToRender.length === 0 ? (
+                <ProductNotFound/>
+            ) : null}
+        </div>
         <ProductDetail/>
         </Layout>
     )

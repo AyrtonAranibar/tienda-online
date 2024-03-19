@@ -91,7 +91,6 @@ const ShoppingCartProvider = ({ children }) => {
     const toggleHiddeNavbar = ()=>{
       setHiddeNavbar(!hiddeNavbar);
     }
-    //nota: cambiar el fondo, agregarle un my account con local storage y que cambie el correo, y cambiar el grid , volverlo responsive, paginacion.
     return (
     <ShoppingCartContext.Provider 
       value={{

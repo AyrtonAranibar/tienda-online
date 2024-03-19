@@ -1,10 +1,8 @@
 import "./Card.css";
-import producto from "../../assets/products/mouse.png";
 
 import { FaPlus, FaStar, FaStarHalf, FaCheck } from "react-icons/fa";
 
 import { IoPeople } from "react-icons/io5";
-// import { GrTechnology } from "react-icons/gr";
 import { useContext, useEffect, useState } from "react";
 import { ShoppingCartContext } from "../../Context/index.jsx";
 
